@@ -8,8 +8,8 @@ export const getProvider = networkId => {
       return 'https://rinkeby.infura.io/';
     case '42':
       return 'https://kovan.infura.io/';
-    case 101:
-      return 'wss://node.ebakus.com/';
+    case 523:
+      return 'https://dev-evm.dev.findora.org:8545';
     default:
       return 'http://localhost:8545/';
   }
@@ -17,8 +17,8 @@ export const getProvider = networkId => {
 
 export const getRPCProvider = networkId => {
   switch (networkId) {
-    case 101:
-      return 'https://noderpc.ebakus.com';
+    case 523:
+      return 'https://dev-evm.dev.findora.org:8545';
     default:
       return getProvider(networkId);
   }
@@ -49,8 +49,8 @@ export const getCryptoHerosTokenAddress = networkId => {
       return '0x0';
     case '42':
       return '0x0';
-    case 101:
-      return '0x4E8A985Bf89D860fADef5C6D2E51f37799Fd66f9';
+    case 523:
+      return '0xF0cD37152E9d78Cc0456313f29BaD49993B877e5';
     default:
       return '0x0';
   }
@@ -66,8 +66,8 @@ export const getCryptoHerosGameAddress = networkId => {
       return '0x0';
     case '42':
       return '0x0';
-    case 101:
-      return '0x77ac86E20C6C3911Be000b190c2FC8FeE34D7abC';
+    case 523:
+      return '0x0033F3F4BFA0A4A74C0BE0a4Cb33A893226a7f65';
     default:
       return '0x0';
   }
