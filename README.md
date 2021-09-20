@@ -2,15 +2,6 @@
 <img src="./icon.png">
 </p>
 
-<p align=center>
-<a target="_blank" href="https://travis-ci.org/ziogaschr/nifty-game.svg?branch=develop" title="Build status"><img src="https://travis-ci.org/ziogaschr/nifty-game.svg?branch=develop"></a>
-<a target="_blank" href="https://reactjs.org/" title="React"><img src="https://img.shields.io/badge/react-%3E%2016.1.1-brightgreen.svg"></a>
-<a target="_blank" href="http://nodejs.org/download/" title="Node version"><img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-brightgreen.svg"></a>
-<a target="_blank" href="https://github.com/ziogaschr/nifty-game/pulls" title="PRs Welcome"><img src="https://img.shields.io/badge/PRs-welcome-blue.svg"></a>
-<img src="https://img.shields.io/hackage-deps/v/lens.svg"/>
-<a target="_blank" href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"/></a>
-</p>
-
 > Non-fungible token game
 
 <img src="https://i.imgur.com/77nixUU.png" height="30"/>
@@ -61,7 +52,6 @@ You can find contract detail under `contracts/` directory:
 - React
 - Redux
 - Saga
-- Web3(Ebakus)
 
 ### UI
 - Sass
@@ -70,19 +60,12 @@ You can find contract detail under `contracts/` directory:
 ### Smart contract/Solidity
 - Truffle
 
-### Test environment/Private chain
-- ganache
-
 ## Requirements
 
 * NodeJS 8.0+ recommended.
 * Windows, Linux or Mac OS X.
 
 ## How To Install Dependencies
-
-First install required dependencies:
-
-You'll need a local ebakus node. Download [Linux](https://www.ebakus.com/builds/ebakus-linux-amd64-v1.9.0-unstable.tar.gz) or [OSX](https://www.ebakus.com/builds/ebakus-darwin-amd64-v1.9.0-unstable.tar.gz) version.
 
 Install truffle:
 
@@ -96,42 +79,26 @@ Then install contract dependencies:
 npm install
 ```
 
-## How To Test
-
-First make sure that the local ebakus node is running. Execute:
-
-```
-ebakus --testnet
-```
+## How To Deploy
 
 Now you can compile and deploy contracts:
 
 ```
-truffle compile && truffle migrate
-```
-
-Run contract tests:
-
-```
-truffle test
+truffle compile && truffle migrate --network prod
 ```
 
 ## Playground
 
-We already deployed contracts to [Ropsten](https://ropsten.etherscan.io/) network. You can play with them RIGHT NOW.
+We already deployed contracts to [Findora](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/) network. You can play with them RIGHT NOW.
 
 | Contract         | Token address | Transaction hash
 |------------------|---------------|---------------------
-| CryptoHerosGame  | [0xb4FF27d8cD1C5b1e3D4BD8A8FFEBdA9BE9517a4b](https://ropsten.etherscan.io/address/0xb4ff27d8cd1c5b1e3d4bd8a8ffebda9be9517a4b) | [0x49bb8698e2951a0c7eb091038b500694cdf37c74ec51d6c98d91823dc9595b95](https://ropsten.etherscan.io/tx/0x49bb8698e2951a0c7eb091038b500694cdf37c74ec51d6c98d91823dc9595b95)
-| CryptoHerosToken | [0xa82Bc392bF65d03A796E1666d27594fB31De4B93](https://ropsten.etherscan.io/address/0xa82bc392bf65d03a796e1666d27594fb31de4b93) | [0xf41868e6b59020965831aac218e1a521b283ab4975f10a44cf0908f6ce586ad7](https://ropsten.etherscan.io/tx/0xf41868e6b59020965831aac218e1a521b283ab4975f10a44cf0908f6ce586ad7)
+| CryptoHerosGame  | [0x0033F3F4BFA0A4A74C0BE0a4Cb33A893226a7f65](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0x0033F3F4BFA0A4A74C0BE0a4Cb33A893226a7f65) | [0x60fe6ac2ec9b0f79e2bf8b51c4d0ffbdef289ac424003a79bf3efd79e38324a3](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0x60fe6ac2ec9b0f79e2bf8b51c4d0ffbdef289ac424003a79bf3efd79e38324a3)
+| CryptoHerosToken | [0xF0cD37152E9d78Cc0456313f29BaD49993B877e5](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0xF0cD37152E9d78Cc0456313f29BaD49993B877e5) | [0x9b3104d591c91600fad67be6c2be6d7ce6af88db47ca78ab9ac5ddde772f1632](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0x9b3104d591c91600fad67be6c2be6d7ce6af88db47ca78ab9ac5ddde772f1632)
 
 ## Card List
 
 See [CARD.md](./dapp/CARD.md) for more information.
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to help out.
 
 ## Licence
 
