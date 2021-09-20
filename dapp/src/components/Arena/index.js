@@ -169,7 +169,7 @@ export default class extends React.Component {
     const tx = {
       from: account,
       to: getCryptoHerosGameAddress(network),
-      value: web3.utils.toWei(String(betEth), 'ether'),
+      value: web3.utils.toWei(betEth, 'ether'),
       data: byteData,
     };
 
