@@ -1,7 +1,7 @@
 {
-  "name": "cryptoheros-dapp",
+  "name": "zzzgo-dapp",
   "version": "0.1.0",
-  "author": "PhyrexTsai",
+  "author": "zTgx",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-cli": "^6.26.0",
