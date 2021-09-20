@@ -105,25 +105,45 @@ export class MetaMask extends Component {
   fetchNetwork() {
     //const { web3 } = window;
     if (this.props.web3 !== null) {
-      this.props.web3.version.getNetwork((err, netId) => {
-        console.log('netId:',netId);
-        if(netId === "1"){
-          this.props.handleMetaMaskNetwork(null);
-          this.setState({metaMaskLockDialogOpen: true, message:messages.METAMASK_TEST_NET  });
-        }
+        this.props.web3.eth.net
+        .getId()
+        .then(netId => {
+          if (netId === '1') {
+                console.log('netId:',netId);
+                this.props.handleMetaMaskNetwork(null);
+                this.setState({metaMaskLockDialogOpen: true, message:messages.METAMASK_TEST_NET  });
+          }
 
-        
-        if (err) {
-          this.props.handleMetaMaskNetwork(null);
-          this.setState({metaMaskLockDialogOpen: true, message: messages.NETWORK_ERROR });
-        } else {
           // if network changed then change redux state
           if (netId !== this.props.metaMask.network) {
             this.props.handleMetaMaskNetwork(netId);
           }
         }
-      });
-    }
+        )
+        .catch(err => {
+            this.props.handleMetaMaskNetwork(null);
+            this.setState({metaMaskLockDialogOpen: true, message: messages.NETWORK_ERROR });
+        });
+    // }
+
+    //   this.props.web3.version.getNetwork((err, netId) => {
+    //     console.log('netId:',netId);
+    //     if(netId === "1"){
+    //       this.props.handleMetaMaskNetwork(null);
+    //       this.setState({metaMaskLockDialogOpen: true, message:messages.METAMASK_TEST_NET  });
+    //     }
+
+    //     if (err) {
+    //       this.props.handleMetaMaskNetwork(null);
+    //       this.setState({metaMaskLockDialogOpen: true, message: messages.NETWORK_ERROR });
+    //     } else {
+    //       // if network changed then change redux state
+    //       if (netId !== this.props.metaMask.network) {
+    //         this.props.handleMetaMaskNetwork(netId);
+    //       }
+    //     }
+    //   });
+    // }
   }
 
   componentDidMount() {
