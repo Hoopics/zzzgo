@@ -124,7 +124,7 @@ export class MetaMask extends Component {
             this.props.handleMetaMaskNetwork(null);
             this.setState({metaMaskLockDialogOpen: true, message: messages.NETWORK_ERROR });
         });
-    // }
+    }
 
     //   this.props.web3.version.getNetwork((err, netId) => {
     //     console.log('netId:',netId);
