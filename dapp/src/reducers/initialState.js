@@ -12,7 +12,7 @@ export default {
     message: '',
     open: false
   },
-  ebakus: {
+  metaMask: {
     account: null,
     network: null
   },

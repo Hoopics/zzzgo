@@ -8,7 +8,6 @@ This is the CryptoHeros dapp.
 - React
 - Redux
 - Saga
-- Web3(Ebakus)
 
 #### UI
 - Sass
@@ -57,5 +56,4 @@ npm run build
 ```
 
 ## Reference
-ganache-cli: https://github.com/trufflesuite/ganache-cli
 truffle: https://github.com/trufflesuite/truffle
