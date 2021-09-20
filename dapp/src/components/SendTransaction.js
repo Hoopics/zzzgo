@@ -12,8 +12,8 @@ class SendTransaction extends Component {
 
     this.props.ebakusWallet
       .sendTransaction({
-        from: this.props.ebakus.account,
-        to: this.props.ebakus.account,
+        from: this.props.metaMask.account, 
+        to: this.props.metaMask.account,
         value: this.props.web3.toWei(1, 'ether'),
         data: 'dead',
       })
@@ -25,8 +25,8 @@ class SendTransaction extends Component {
     return (
       <div style={{ padding: '1em', margin: '1em', border: '1px solid black' }}>
         <h1>Send Transaction</h1>
-        <div>To: {this.props.ebakus.account}</div>
-        <div>Network: {this.props.ebakus.network}</div>
+        <div>To: {this.props.metaMask.account}</div>
+        <div>Network: {this.props.metaMask.network}</div>
         <button onClick={() => this.handleSubmit()}>Submit</button>
       </div>
     );

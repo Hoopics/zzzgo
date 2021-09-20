@@ -59,68 +59,47 @@ class Card extends Component {
     const { doMint } = this.props;
     const result = await doMint();
     this.setState({ doMintTx: result, isLoading: true }, () => {
-      this.handleSubmitEbakus(this.state.doMintTx);
+      this.handleSubmitMetaMask(this.state.doMintTx);
     });
   };
 
-  handleSubmitEbakus = async doMintTx => {
-    const { account, network } = this.props.ebakus;
-    const { web3 } = this.props;
-
+  handleSubmitMetaMask = async doMintTx => {
+    const {account, network} = this.props.metaMask;
+    const {web3} = this.props;
+    
     const msk = {
       from: account,
       to: getCryptoHerosTokenAddress(network),
-      // value: this.props.web3.utils.toWei('0.01', 'ether'),
-      data: doMintTx,
-    };
+      value: this.props.web3.toWei(0.01, 'ether'),
+      data: doMintTx
+    }
 
-    const gas = await web3.eth.estimateGas(msk);
-    msk.gas = gas;
-
-    this.props.ebakusWallet
-      .sendTransaction(msk)
-      .then(res => {
-        this.handleEbakusCallBack(null, res);
-      })
-      .catch(err => {
-        this.handleEbakusCallBack(err, null);
-      });
+    web3.eth.sendTransaction(msk, this.handleMetaMaskCallBack);
   };
 
-  handleEbakusCallBack = (err, result) => {
-    const {  network } = this.props.ebakus;
+  handleMetaMaskCallBack = (err, result)=>{
 
-    if (err) {
-      let errmsg = 'Sorry, transaction failed'
-      if (err === 'no_funds') {
-        errmsg ='Not enough funds. Please add some funds and try again.'
-      }
-      this.setState({ errmsg }, () =>
-        this.setState({ isOpenAlert: true })
-      );
-      console.error('Ebakus Error:', err);
-      this.setState({ isLoading: false });
+    if(err) {
+      this.setState({errmsg: 'Sorry, transaction failed'}, ()=> this.setState({isOpenAlert: true}));
+      console.error('MetaMask Error:', err.message);
+      this.setState({isLoading: false});
       return;
     }
 
     const tx = result;
-    let t = setInterval(async () => {
-      const result = await axios.post(getRPCProvider(network), {
-        method: 'eth_getTransactionReceipt',
-        params: [tx.transactionHash],
-        id: 1,
-        jsonrpc: '2.0',
-      });
+    let t = setInterval(async ()=>{
+      const result = await axios.get(`https://api-ropsten.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=${tx}&apikey=RAADZVN65BQA7G839DFN3VHWCZBQMRBR11`);
 
-      if (result.data.result.status === '0x1') {
+      if(result.data.result.status === "1") {
         this.ReloadDataFn();
         window.clearInterval(t);
       }
-    }, 500);
-  };
+
+    },3000);
+  }
 
   ReloadDataFn = () => {
-    const { network, account } = this.props.ebakus;
+    const {network, account} = this.props.metaMask;
     //抓卡牌編號
     this.props.handleCryptoHerosTokenGetOwnedTokens(
       network,

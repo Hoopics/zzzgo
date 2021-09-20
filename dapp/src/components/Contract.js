@@ -39,26 +39,8 @@ export default class Contract extends Component {
           <button onClick={() => this.props.handleCryptoHerosTokenSymbol(this.props.web3.version.network)}>Symbol</button>
           */}
 
-        <button
-          onClick={() =>
-            this.props.handleCryptoHerosTokenGetOwnedTokens(
-              this.props.ebakus.network,
-              this.props.ebakus.account
-            )
-          }
-        >
-          Owned Tokens
-        </button>
-        <button
-          onClick={() =>
-            this.props.handleCryptoHerosTokenTokenURI(
-              this.props.ebakus.network,
-              0
-            )
-          }
-        >
-          Token URI
-        </button>
+        <button onClick={() => this.props.handleCryptoHerosTokenGetOwnedTokens(this.props.metaMask.network, this.props.metaMask.account)}>Owned Tokens</button>
+        <button onClick={() => this.props.handleCryptoHerosTokenTokenURI(this.props.metaMask.network, 0)}>Token URI</button>
 
         <div>{ownedToken}</div>
       </div>

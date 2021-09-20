@@ -7,7 +7,6 @@ import Tutorial from './Tutorial';
 import title from '../images/titlelogo.png';
 import title2 from '../images/title2.png';
 import './App.css';
-import { Ebakus } from './Ebakus/Ebakus';
 import { MetaMask } from './MetaMask/MetaMask';
 import { TweenMax } from 'gsap/TweenMax';
 import { Warning } from './Warning/Warning';
@@ -27,8 +26,6 @@ import NiftyAlert from './NiftyAlert';
 class App extends Component {
   state = {
     web3: null,
-    ebakus: null,
-    ebakusWallet: null,
     brand: [],
     brandItem: [],
     isLoading: true,
@@ -45,7 +42,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.setWeb3 = this.setWeb3.bind(this);
-    this.setEbakusWallet = this.setEbakusWallet.bind(this);
   }
 
   handleAlertOpen = errmag => {
@@ -80,9 +76,6 @@ class App extends Component {
 
   setWeb3(web3) {
     this.setState({ web3 });
-  }
-  setEbakusWallet(ebakusWallet) {
-    this.setState({ ebakusWallet });
   }
 
   Elffn = e => {

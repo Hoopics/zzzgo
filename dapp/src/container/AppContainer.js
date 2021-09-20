@@ -1,87 +1,88 @@
 import { connect } from 'react-redux';
 import App from '../components/App';
-import { addAction, subAction } from '../actions/counterActions';
-import { healthAction } from '../actions/healthActions';
 import {
-  simpleTokenNameAction,
+  addAction,
+  subAction
+} from '../actions/counterActions';
+import { healthAction } from '../actions/healthActions';
+import { 
+  simpleTokenNameAction, 
   simpleTokenSymbolAction,
   simpleTokenDecimalsAction,
 } from '../actions/simpleTokenActions';
-import {
+import { 
   warningOpenAction,
-  warningCloseAction,
+  warningCloseAction
 } from '../actions/warningActions';
 import {
-  ebakusAccountAction,
-  ebakusNetworkAction,
-} from '../actions/ebakusActions';
+  metaMaskAccountAction,
+  metaMaskNetworkAction
+} from '../actions/metaMaskActions';
 import {
   cryptoHerosTokenNameAction,
   cryptoHerosTokenSymbolAction,
   cryptoHerosTokenGetOwnedTokensAction,
-  cryptoHerosTokenTokenURIAction,
+  cryptoHerosTokenTokenURIAction
 } from '../actions/cryptoHerosActions';
 
-const mapStateToProps = state => ({
+const  mapStateToProps = (state) => ({
   isFetching: state.isFetching,
   count: state.count,
   error: state.error,
   health: state.health,
   simpleToken: state.simpleToken,
   warning: state.warning,
-  ebakus: state.ebakus,
+  metaMask: state.metaMask,
   cryptoHerosToken: state.cryptoHerosToken,
   cryptoHerosOwned: state.cryptoHerosOwned,
-  cryptoHerosOwnedTokenURI: state.cryptoHerosOwnedTokenURI,
+  cryptoHerosOwnedTokenURI: state.cryptoHerosOwnedTokenURI
 });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    handleAdd: num => {
+    handleAdd: (num) => {
       dispatch(addAction(num));
     },
-    handleSub: num => {
+    handleSub: (num) => {
       dispatch(subAction(num));
     },
     handleHealth: () => {
       dispatch(healthAction());
     },
-    handleSimpleTokenName: networkId => {
+    handleSimpleTokenName: (networkId) => {
       dispatch(simpleTokenNameAction(networkId));
     },
-    handleSimpleTokenSymbol: networkId => {
+    handleSimpleTokenSymbol: (networkId) => {
       dispatch(simpleTokenSymbolAction(networkId));
     },
-    handleSimpleTokenDecimals: networkId => {
+    handleSimpleTokenDecimals: (networkId) => {
       dispatch(simpleTokenDecimalsAction(networkId));
     },
-    handleCryptoHerosTokenName: networkId => {
+    handleCryptoHerosTokenName: (networkId) => {
       dispatch(cryptoHerosTokenNameAction(networkId));
     },
-    handleCryptoHerosTokenSymbol: networkId => {
+    handleCryptoHerosTokenSymbol: (networkId) => {
       dispatch(cryptoHerosTokenSymbolAction(networkId));
     },
     handleCryptoHerosTokenGetOwnedTokens: (networkId, address, callBack) => {
-      dispatch(
-        cryptoHerosTokenGetOwnedTokensAction(networkId, address, callBack)
-      );
+      dispatch(cryptoHerosTokenGetOwnedTokensAction(networkId, address, callBack));
     },
     handleCryptoHerosTokenTokenURI: (networkId, tokenId, callBack) => {
       dispatch(cryptoHerosTokenTokenURIAction(networkId, tokenId, callBack));
     },
-    handleWarningOpen: message => {
+    handleWarningOpen: (message) => {
       dispatch(warningOpenAction(message));
     },
     handleWarningClose: () => {
       dispatch(warningCloseAction());
     },
-    handleEbakusAccount: account => {
-      dispatch(ebakusAccountAction(account));
+    handleMetaMaskAccount: (account) => {
+      dispatch(metaMaskAccountAction(account));
     },
-    handleEbakusNetwork: network => {
-      dispatch(ebakusNetworkAction(network));
-    },
-  };
+    handleMetaMaskNetwork: (network) => {
+      dispatch(metaMaskNetworkAction(network));
+    }
+  }
 };
 
 export default connect(

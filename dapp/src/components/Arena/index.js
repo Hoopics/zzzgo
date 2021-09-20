@@ -151,9 +151,9 @@ export default class extends React.Component {
 
   // 開始賭
   handlePlaceBet = async e => {
-    const { web3, ebakus, historyGamesCount, } = this.props;
+    const { web3, metaMask, historyGamesCount, } = this.props;
     const { betEth, selectedCardIdx, historyGames, } = this.state;
-    const { account, network } = ebakus;
+    const { account, network } = metaMask;
 
     if (betEth > 1 || betEth < 0.01) {
       this.handleAlertOpen('Your bet should be between 0.01 and 1 eth.');
@@ -263,8 +263,8 @@ export default class extends React.Component {
 
   // 看歷史戰鬥
   handleShowHistory = async e => {
-    const { web3, ebakus } = this.props;
-    const { account, network } = ebakus;
+    const { web3, metaMask, } = this.props;
+    const { account, network } = metaMask;
 
     this.setState({
       isLoading: true,

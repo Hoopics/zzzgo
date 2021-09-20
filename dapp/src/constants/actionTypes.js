@@ -6,9 +6,10 @@ export const HEALTH_STATUS = 'HEALTH_STATUS';
 
 export const SYSTEM_ERROR = 'SYSTEM_ERROR';
 
-// for Ebakus
-export const EBAKUS_ACCOUNT = 'EBAKUS_ACCOUNT';
-export const EBAKUS_NETWORK = 'EBAKUS_NETWORK';
+
+// for MetaMask
+export const METAMASK_ACCOUNT = 'METAMASK_ACCOUNT';
+export const METAMASK_NETWORK = 'METAMASK_NETWORK';
 
 // for SimpleToken contract
 export const SIMPLE_TOKEN_NAME = 'SIMPLE_TOKEN_NAME';

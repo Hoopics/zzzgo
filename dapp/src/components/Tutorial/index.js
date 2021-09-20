@@ -22,15 +22,15 @@ export default class extends React.Component {
 
           <h2>Getting started</h2>
           <p>
-            First, you will need Ebakus to run the game. To download Ebakus,
+            First, you will need MetaMask to run the game. To download MetaMask,
             click{' '}
-            <a href="https://ebakus.io/" target="_blank">
+            <a href="https://MetaMask.io/" target="_blank">
               here
             </a>
           </p>
 
           <p>
-            Once you downloaded Ebakus, create a wallet so you can receive
+            Once you downloaded MetaMask, create a wallet so you can receive
             testnet ETH later on. See{' '}
             <a href="http://bit.ly/bigsmalltutorialM" target="_blank">
               tutorial
@@ -43,7 +43,7 @@ export default class extends React.Component {
             <a href="http://game.portal.network" target="_blank">
               Big and Small
             </a>{' '}
-            and switch to Ropsten Test Network via your Ebakus.
+            and switch to Ropsten Test Network via your MetaMask.
           </p>
 
           <p>
