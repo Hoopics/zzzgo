@@ -8,6 +8,7 @@ import title from '../images/titlelogo.png';
 import title2 from '../images/title2.png';
 import './App.css';
 import { Ebakus } from './Ebakus/Ebakus';
+import { MetaMask } from './MetaMask/MetaMask';
 import { TweenMax } from 'gsap/TweenMax';
 import { Warning } from './Warning/Warning';
 import {
@@ -58,7 +59,7 @@ class App extends Component {
   componentDidMount() {
     window.addEventListener('mousemove', this.Elffn);
     let t = setInterval(() => {
-      const { network, account } = this.props.ebakus;
+       const {network, account} = this.props.metaMask;
       if (network !== null && account !== null) {
         window.clearInterval(t);
         //抓卡牌編號
@@ -72,11 +73,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      this.props.ebakus.account &&
-      prevProps.ebakus.account &&
-      this.props.ebakus.account !== prevProps.ebakus.account
-    ) {
+    if(this.props.metaMask.account && prevProps.metaMask.account && this.props.metaMask.account !== prevProps.metaMask.account) {
       window.location.reload();
     }
   }
@@ -114,7 +111,7 @@ class App extends Component {
       isLoadingCoinLoading: true,
     });
 
-    const { network, account } = this.props.ebakus;
+    const { network, account, } = this.props.metaMask;
     const result = await doGetOwnedTokens(network, account);
     const cardsPromises = result.map(cur => doGetTokenProperty(network, cur));
     const brandItem = await Promise.all(cardsPromises);
@@ -144,7 +141,7 @@ class App extends Component {
       isLoadingCoinLoading: true,
     });
 
-    const { network, account } = this.props.ebakus;
+    const { network, account, } = this.props.metaMask;
     const result = await doGetOwnedTokens(network, account);
 
     if (result.length === 0) {
@@ -249,11 +246,7 @@ class App extends Component {
             <a className="showTutorial" onClick={this.handleOpenTutorial} />
           </div>
           <IndexUi />
-          <Ebakus
-            {...this.props}
-            {...this.state}
-            setWeb3={this.setWeb3}
-            setEbakusWallet={this.setEbakusWallet}
+          <MetaMask {...this.props} {...this.state} setWeb3={this.setWeb3}/>
           />
           <Warning {...this.props} />
           {this.state.isErrorOpen && (
