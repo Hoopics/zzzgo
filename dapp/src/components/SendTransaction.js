@@ -12,7 +12,7 @@ class SendTransaction extends Component {
     this.props.web3.eth.sendTransaction({
       from: this.props.metaMask.account, 
       to: this.props.metaMask.account,
-      value: this.props.web3.utils.toWei(1, 'ether'),//this.props.web3.toWei(1, 'ether'),
+      value: this.props.web3.utils.toWei('1', 'FRA'),//this.props.web3.toWei(1, 'ether'),
       data: 'dead' 
     }, function(err, result) {
         if (err) {
