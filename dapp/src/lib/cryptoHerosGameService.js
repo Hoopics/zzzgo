@@ -17,7 +17,11 @@ export const doCreateSingleGame = (networkId, tokenId) => {
 export const doGetUserSingleGames = (networkId, address) => {
   try {
     setWeb3Provider(networkId);
+    console.log('zhTian doGetUserSingleGames networkId : ', networkId, address);
+
     const result = cryptoHerosGame.getUserSingleGames(address);
+    console.log('zhTian doGetUserSingleGames result : ' , result);
+
     return result;
   } catch (err) {
     console.log('doGetUserSingleGames: ', err);

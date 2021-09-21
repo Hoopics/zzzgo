@@ -106,6 +106,7 @@ class App extends Component {
 
     const { network, account, } = this.props.metaMask;
     const result = await doGetOwnedTokens(network, account);
+    console.log("zhTian getownedToken: ", result);
     const cardsPromises = result.map(cur => doGetTokenProperty(network, cur));
     const brandItem = await Promise.all(cardsPromises);
 

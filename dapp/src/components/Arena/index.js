@@ -165,14 +165,83 @@ export default class extends React.Component {
       isLoading: true,
     });
 
+    console.log('zhTian : betEth = ', betEth);
     const byteData = doCreateSingleGame(network, selectedCard.tokenId);
     const tx = {
       from: account,
       to: getCryptoHerosGameAddress(network),
-      value: web3.utils.toWei(String(betEth), 'FRA'),
+      value: web3.utils.toWei(String(betEth)),
+      gas: web3.utils.toHex(5000000),
       data: byteData,
     };
 
+    console.log('zhTian 发起战斗 tx : ', tx);
+
+    web3.eth.sendTransaction(tx, (err, response) => {
+      if(err) {
+        this.handleAlertOpen("Sorry, transaction failed");
+        this.setState({
+          isLoading: false,
+        });
+        return;
+      }
+
+    	console.log('zhTian 开始游戏后的 response : ', response);  
+	let t = setInterval(async () => {
+        //const result = await axios.get(`https://api-ropsten.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=${response}&apikey=RAADZVN65BQA7G839DFN3VHWCZBQMRBR11`)
+        //const result = await axios.get(`http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/${response}`)
+        
+        //console.log('zhTian status : ', result.result.txs[0].tx_result.code);
+        if (true) {
+        //if (result.data.status === "1") {
+          
+          const gameChecker = window.setInterval(async () => {
+            const games = await doGetUserSingleGames(network, account);
+            console.log('zhTian games: ', games);
+
+            //FIXME: 透過 user 戰鬥場數來判斷此役戰鬥在合約中是否已確實完成
+            //       但礙於組建設計不良, 生命週期混亂, 只能透過在 App.js 取得的 historyGamesCount
+            //       以及本地取得的 historyGames 做雙重判斷, 之後需要更改
+            if(games.length <= historyGames.length || games.length <= historyGamesCount) {
+              return;
+            }
+            window.clearInterval(gameChecker);
+            const gamePromises = games.map(cur => getSingleGame(network, cur.c[0], account));
+            const gameDetails = await Promise.all(gamePromises);
+            const thisGame = gameDetails[gameDetails.length - 1];
+            const userPointer = thisGame[1].c[0];
+            const contractPointer = thisGame[2].c[0];
+            const userBet = thisGame[3].c[0];
+            const gameType = thisGame[4].c[0]; // 0 = small win 1 = big win
+            const isWin = thisGame[5].c[0];    // 0 win, 1 lost, 2 平手
+            const isUserSmall = userPointer < contractPointer;
+
+            const battleResult = {
+              userPointer,
+              contractPointer,
+              userBet,
+              isUserSmall,
+              gameType,
+              isWin,
+            };
+            console.log('zhTian battleResult : ', battleResult);
+
+            window.setTimeout(() => {
+              this.setState({
+                isLoading: false,
+                isShowResult: true,
+                isShowHistory: false,
+                hasBattleResult: true,
+                battleResult,
+              });
+            }, 0);
+          }, 1234);
+          window.clearInterval(t);
+        }
+      }, 3000);
+    });
+
+    /*
     try {
       const gas = await web3.eth.estimateGas(tx);
       tx.gas = gas;
@@ -183,8 +252,9 @@ export default class extends React.Component {
         isLoading: false,
       });
       return;
-    }
+    }*/
 
+    /*
     this.props.ebakusWallet
       .sendTransaction(tx)
       .then(response => {
@@ -258,7 +328,7 @@ export default class extends React.Component {
           isLoading: false,
         });
         return;
-      });
+      });*/
   };
 
   // 看歷史戰鬥

@@ -58,6 +58,7 @@ class Card extends Component {
   CreateHero = async () => {
     const { doMint } = this.props;
     const result = await doMint();
+    console.log("zhTian: doMint result : ", result);
     this.setState({ doMintTx: result, isLoading: true }, () => {
       this.handleSubmitMetaMask(this.state.doMintTx);
     });
@@ -70,9 +71,13 @@ class Card extends Component {
     const msk = {
       from: account,
       to: getCryptoHerosTokenAddress(network),
-      value: this.props.web3.utils.toWei('0.01', 'FRA'), //this.props.web3.toWei(0.01, 'ether'),
-      data: doMintTx
+      value: this.props.web3.utils.toWei('0.01', 'ether'), //this.props.web3.toWei(0.01, 'ether'),
+      data: doMintTx,
+      gas: 55000000, 
+      //gasPrice: '100000000000',
+      //gasLimit: '1000000000000',
     }
+    console.log('zhTian msk : ', msk);
 
     web3.eth.sendTransaction(msk, this.handleMetaMaskCallBack);
   };
@@ -86,20 +91,22 @@ class Card extends Component {
       return;
     }
 
+    
     const tx = result;
     let t = setInterval(async ()=>{
-      const result = await axios.get(`https://api-ropsten.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=${tx}&apikey=RAADZVN65BQA7G839DFN3VHWCZBQMRBR11`);
+      //const result = await axios.get(`https://api-ropsten.etherscan.io/api?module=transaction&action=gettxreceiptstatus&txhash=${tx}&apikey=RAADZVN65BQA7G839DFN3VHWCZBQMRBR11`);
 
-      if(result.data.result.status === "1") {
+      //if(result.data.result.status === "1") {
         this.ReloadDataFn();
         window.clearInterval(t);
-      }
 
     },3000);
   }
 
   ReloadDataFn = () => {
     const {network, account} = this.props.metaMask;
+    console.log("network , account : ", network, account);
+
     //抓卡牌編號
     this.props.handleCryptoHerosTokenGetOwnedTokens(
       network,

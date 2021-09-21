@@ -70,6 +70,7 @@ export const doGetOwnedTokens = (networkId, address) => {
   try {
     setWeb3Provider(networkId);
     const result = cryptoHerosToken.getOwnedTokens(address);
+    console.log('zhTian doGetOwnedTokens result: ', result);
     return result;
   } catch (err) {
     console.log('doGetOwnedTokens: ', err);
@@ -90,5 +91,6 @@ export const doGetHerosLength = (networkId) => {
 
 //創造卡片
 export const doMint = () => {
+    console.log("zhTian : cryptoHerosToken: ", cryptoHerosToken);
   return cryptoHerosToken.mint();
 }
