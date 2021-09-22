@@ -1,5 +1,5 @@
 ### Quick Start
-Go [PlayGround](http://34.222.189.217:3000), Let's Play!
+This is a CryptoHeros Game, Go [PlayGround](http://34.222.189.217:3000), And Play!
 
 ---
 
@@ -42,25 +42,6 @@ You can find contract detail under `contracts/` directory:
 
 - [`CryptoHerosToken.sol`](./contracts/CryptoHerosToken.sol):
     The implementation of game cards purchase and generation.
-
-## Technical stack
-
-### Frontend
-- React
-- Redux
-- Saga
-
-### UI
-- Sass
-- Material-UI
-
-### Smart contract/Solidity
-- Truffle
-
-## Requirements
-
-* NodeJS 8.0+ recommended.
-* Windows, Linux or Mac OS X.
 
 ## How To Install Dependencies
 
