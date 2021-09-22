@@ -4,8 +4,6 @@
 
 > Non-fungible token game
 
-<img src="https://i.imgur.com/77nixUU.png" height="30"/>
-
 This project is a crypto card game that uses [OpenZepplin](https://github.com/OpenZeppelin/openzeppelin-solidity).
 
 The contract is compiled and deployed under the ERC-721 non-fungible token standard with truffle framework. After deploying onto the Ethereum blockchain, users will be able to play the game by interacting with the smart contract through DAPP’s front-end interface.
@@ -18,17 +16,11 @@ Users can acquire game cards using ETH. Every game card will have a game point o
 #### Card Collection
 Players can aquire card using ether. Each card will have a random points on it, which will be used to deternmine the winner in the card game.
 
-![Card Collection](herocollection.gif)
-
 #### Card Battle
 Once entered the game, players will need to choose a card to play for the round. Each round, the smart contract will randomly decide either card with larger or smaller point wins the round. At the same time, the smart contract will also randomly generate a number in order to compete with the player. Winner of the game will receive the price.
 
-![Card Battle](cardbattle.gif)
-
 #### Dashboard
 You can view the card battle history about all the games you played.
-
-![Game History](gamehistory.gif)
 
 ## ERC-721 Token
 
