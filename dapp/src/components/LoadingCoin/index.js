@@ -8,7 +8,7 @@ export default class extends React.PureComponent {
   render() {
     return (
       <div className={cx('loading-coin-container')}>
-        <img src={loadingcoin} />
+        <img src="https://mk0findorallrhx93ixi.kinstacdn.com/wp-content/themes/_findora/img/logo-white.svg" />
       </div>
     )
   }

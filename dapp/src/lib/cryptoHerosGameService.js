@@ -10,6 +10,7 @@ const setWeb3Provider = (networkId) => {
 }
 
 export const doCreateSingleGame = (networkId, tokenId) => {
+    console.log('zhTian doCreateSingleGame networkId / tokenId : ', networkId, tokenId);
     setWeb3Provider(networkId);
     return cryptoHerosGame.createSingleGame(tokenId);
 }

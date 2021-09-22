@@ -181,8 +181,7 @@
   width: 240px;
   height: 45px;
   background-size: 240px;
-  background-repeat: no-repeat;
-  background-image: url("../../images/inputEBK.png"); }
+  background-repeat: no-repeat; }
   .bet_eth_field input {
     position: absolute;
     top: 8px;

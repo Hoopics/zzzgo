@@ -229,7 +229,7 @@ class App extends Component {
         <div className="index">
           <div className="titlebox">
             <img className="title" src={title} />
-            <img className="title2" src={title2} />
+            <img className="title2" src="https://mk0findorallrhx93ixi.kinstacdn.com/wp-content/themes/_findora/img/logo-white.svg" />
             {isLoading && <Loading />}
             {!isLoading && (
               <a className="gameplay" onClick={this.handleGoArena} />
@@ -279,8 +279,8 @@ class App extends Component {
 
         <span className="text">
           <div className="footer">
-            <a href="https://www.portal.network/" target="_blank">
-              Powered by Portal Network
+            <a href="https://findora.org/" target="_blank">
+              Powered by Findora Network
             </a>
             <a
               href="https://www.portal.network/privacy_policy.html"
