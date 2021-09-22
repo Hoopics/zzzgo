@@ -1,3 +1,8 @@
+### Quick Start
+Go [PlayGround](http://34.222.189.217:3000), Let's Play!
+
+---
+
 <p align=center>
 <img src="./icon.png">
 </p>
