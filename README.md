@@ -93,8 +93,8 @@ We already deployed contracts to [Findora](http://dev-evm.findorascan.io.s3-webs
 
 | Contract         | Token address | Transaction hash
 |------------------|---------------|---------------------
-| CryptoHerosGame  | [0x0033F3F4BFA0A4A74C0BE0a4Cb33A893226a7f65](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0x0033F3F4BFA0A4A74C0BE0a4Cb33A893226a7f65) | [0x60fe6ac2ec9b0f79e2bf8b51c4d0ffbdef289ac424003a79bf3efd79e38324a3](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0x60fe6ac2ec9b0f79e2bf8b51c4d0ffbdef289ac424003a79bf3efd79e38324a3)
-| CryptoHerosToken | [0xF0cD37152E9d78Cc0456313f29BaD49993B877e5](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0xF0cD37152E9d78Cc0456313f29BaD49993B877e5) | [0x9b3104d591c91600fad67be6c2be6d7ce6af88db47ca78ab9ac5ddde772f1632](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0x9b3104d591c91600fad67be6c2be6d7ce6af88db47ca78ab9ac5ddde772f1632)
+| CryptoHerosGame  | [0x1c6B02980E668d655802840b39e25ae1C3b5B668](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0x1c6B02980E668d655802840b39e25ae1C3b5B668) | [0x9dd3a99d6ffa05db2dd5b4934009e0148154dd96d9f477c313d92a443f9ee94c](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0x9dd3a99d6ffa05db2dd5b4934009e0148154dd96d9f477c313d92a443f9ee94c)
+| CryptoHerosToken | [0x9387327F57668B8088C167d454cBC4AaC7268337](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/addressevm?key=0x9387327F57668B8088C167d454cBC4AaC7268337) | [0xab2ed7bada8fe29ba4c7c154eca8668c7e5ee8f6dbe10b2aa7d55df0c763cc45](http://dev-evm.findorascan.io.s3-website-us-west-2.amazonaws.com/tx/0xab2ed7bada8fe29ba4c7c154eca8668c7e5ee8f6dbe10b2aa7d55df0c763cc45)
 
 ## Card List
 
