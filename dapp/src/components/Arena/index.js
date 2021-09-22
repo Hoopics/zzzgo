@@ -442,7 +442,7 @@ export default class extends React.Component {
                 <div className="texttotu">
                     <p>Choose a card to play for the round.</p><br/>
                     <p>Your bet should be between 0.01 - 1 FRA.</p><br/>
-                    <p>Once you place the bet, system will randomly decide whether card with larger number or smaller number wins the round. At the same time our game bot will randomly generate a number to compete with you. Everything is completely random and you can check our code <a href="https://github.com/ziogaschr/nifty-game" target="_blank">here!</a></p><br/>
+                    <p>Once you place the bet, system will randomly decide whether card with larger number or smaller number wins the round. At the same time our game bot will randomly generate a number to compete with you. Everything is completely random and you can check our code <a href="https://github.com/zTgx/zzzgo" target="_blank">here!</a></p><br/>
                     <p>Depending on the round, card with larger or smaller number will be the winner.</p><br/>
                     <p>Winner of the game will win 150% of the bet put in</p><br/>
                     <p>Happy playing!</p>
