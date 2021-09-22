@@ -18,21 +18,18 @@ export default class className extends Component{
                 <div className="ui start2"></div>
                 <div className="ui start3"></div>
                 <div className="linkBOx">
-                    <a className="linkIcon github" href="https://github.com/ziogaschr/nifty-game" target="_blank">
+                    <a className="linkIcon github" href="https://github.com/zTgx/zzzgo" target="_blank">
                         <i className="fab fa-github fa-2x"></i>
                     </a>
-                    <a className="linkIcon telegram" href="https://t.me/portalnetworkofficial" target="_blank">
-                        <i className="fab fa-telegram fa-2x"></i>
-                    </a>
-                    <a className="linkIcon email" href="mailto:support@portal.network">
+                    <a className="linkIcon email" href="mailto:747674262@qq.com">
                         <i className="fas fa-envelope fa-2x"></i>
                     </a>
                 </div>
                 <div className="ui Elf0"></div>
-                <a href="https://github.com/MikeCheng1208" target="_blank" className="ui Elf1"></a>
-                <a href="https://github.com/ahlumin" target="_blank" className="ui Elf2"></a>
-                <a href="https://github.com/PhyrexTsai" target="_blank" className="ui Elf3"></a>
-                <a href="https://github.com/seanchuangportal" target="_blank" className="ui fruit1"></a>
+                <a href="" target="_blank" className="ui Elf1"></a>
+                <a href="" target="_blank" className="ui Elf2"></a>
+                <a href="" target="_blank" className="ui Elf3"></a>
+                <a href="" target="_blank" className="ui fruit1"></a>
                 <a className="ui fruit2"></a>
 
             </div>

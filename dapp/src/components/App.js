@@ -282,18 +282,6 @@ class App extends Component {
             <a href="https://findora.org/" target="_blank">
               Powered by Findora Network
             </a>
-            <a
-              href="https://www.portal.network/privacy_policy.html"
-              target="_blank"
-            >
-              Privacy & Policy
-            </a>
-            <a
-              href="https://www.portal.network/terms_coditions.html"
-              target="_blank"
-            >
-              Terms of use
-            </a>
           </div>
         </span>
       </div>
