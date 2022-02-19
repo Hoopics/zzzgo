@@ -1,6 +1,9 @@
-pragma solidity ^0.4.17;
+// SPDX-License-Identifier: MIT
+// pragma solidity ^0.4.17;
+pragma solidity ^0.8.0;
 
-import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+// import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+import "@openzeppelin/contracts/access/Ownable.sol";
 import './CryptoHerosToken.sol';
 
 contract CryptoHerosGame is Ownable {
@@ -32,7 +35,7 @@ contract CryptoHerosGame is Ownable {
     cryptoHerosToken = _cryptoHerosToken;
   }
 
-  function () payable public {
+  fallback() payable public {
 
   }
 
