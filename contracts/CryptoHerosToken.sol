@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // pragma solidity ^0.4.17;
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.10;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -60,7 +60,9 @@ contract CryptoHerosToken is ERC721, Ownable {
     require(descriptions.length > 0);
     require(msg.value >= minPrice);
     // require(owner.send(msg.value));
-    require(payable(owner()).send(msg.value));
+
+    address payable owner = payable(owner());
+    require(owner.send(msg.value));
 
     // uint256 _tokenId = totalSupply();
 

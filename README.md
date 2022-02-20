@@ -1,7 +1,4 @@
-### Quick Start
-This is a CryptoHeros Game, Go [PlayGround](http://34.222.189.217:3000), And Play!
-
----
+## zzzgo project
 
 <p align=center>
 <img src="./icon.png">
@@ -9,7 +6,7 @@ This is a CryptoHeros Game, Go [PlayGround](http://34.222.189.217:3000), And Pla
 
 > Non-fungible token game
 
-This project is a crypto card game that uses [OpenZepplin](https://github.com/OpenZeppelin/openzeppelin-solidity).
+This project is a crypto card game that uses [OpenZepplin](https://github.com/OpenZeppelin/openzeppelin-contracts).
 
 The contract is compiled and deployed under the ERC-721 non-fungible token standard with truffle framework. After deploying onto the Ethereum blockchain, users will be able to play the game by interacting with the smart contract through DAPP’s front-end interface.
 
@@ -62,7 +59,7 @@ npm install
 Now you can compile and deploy contracts:
 
 ```
-truffle compile && truffle migrate --network prod
+truffle compile && truffle migrate --network ganache
 ```
 
 ## Playground

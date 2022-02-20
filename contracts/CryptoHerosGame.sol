@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // pragma solidity ^0.4.17;
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.10;
 
 // import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -31,12 +31,13 @@ contract CryptoHerosGame is Ownable {
 
   mapping(address => uint256[]) public usersSingleGames;
 
-  constructor(CryptoHerosToken _cryptoHerosToken) public { 
+  constructor(CryptoHerosToken _cryptoHerosToken) { 
     cryptoHerosToken = _cryptoHerosToken;
   }
 
-  fallback() payable public {
-
+  event Received(address, uint);
+  receive() external payable {
+      emit Received(msg.sender, msg.value);
   }
 
   function createSingleGame(uint _tokenId) payable public returns (uint256) {
@@ -60,17 +61,22 @@ contract CryptoHerosGame is Ownable {
     SingleGame memory _singleGame;
     if (result == 0) {
       _singleGame = SingleGame({player: msg.sender, userResult: userTokenNumber, contractResult: contractTokenNumber, playerBet: msg.value, game: game, result: 2});
-      require(msg.sender.send(msg.value * 1 - gameFee));
+
+      address payable senderAddress = payable(msg.sender);
+      require(senderAddress.send(msg.value * 1 - gameFee));
 
     } else if (result > 0) {
       _singleGame = SingleGame({player: msg.sender, userResult: userTokenNumber, contractResult: contractTokenNumber, playerBet: msg.value, game: game, result: 0});
-      require(msg.sender.send(msg.value * 150 / 100));
+      // require(msg.sender.send(msg.value * 150 / 100));
 
+      address payable senderAddress = payable(msg.sender);
+      require(senderAddress.send(msg.value * 150 / 100));
     } else {
       _singleGame = SingleGame({player: msg.sender, userResult: userTokenNumber, contractResult: contractTokenNumber, playerBet: msg.value, game: game, result: 1});
     }
 
-    maxSingleGameId = singleGames.push(_singleGame) - 1;
+    singleGames.push(_singleGame);
+    maxSingleGameId = singleGames.length - 1;
 
     uint256[] storage userSingleGames = usersSingleGames[msg.sender];
     userSingleGames.push(maxSingleGameId);
@@ -82,18 +88,22 @@ contract CryptoHerosGame is Ownable {
   //   return usersSingleGames[_address][_idx].length;
   // }
 
-  function getUserSingleGames(address _address) external view returns (uint256[]) {
+  function getUserSingleGames(address _address) external view returns (uint256[] memory) {
     return usersSingleGames[_address];
   }
 
   function rand(uint min, uint max) private returns (uint){
     nonce++;
-    return uint(keccak256(nonce))%(min+max)-min;
+    return uint(keccak256(abi.encodePacked(nonce)))%(min+max)-min;
   }
 
   function withdraw(uint amount) public payable onlyOwner returns(bool) {
     require(amount <= address(this).balance);
-    owner.transfer(amount);
+
+    address payable ownerAddress = payable(owner());
+    // owner.transfer(amount);
+    ownerAddress.transfer(amount);
+
     return true;
   }
 
