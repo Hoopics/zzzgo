@@ -1,4 +1,6 @@
 export const getProvider = networkId => {
+  console.log('zhTian provider networkid : ', networkId);
+  
   switch (networkId) {
     case '1':
       return 'https://mainnet.infura.io/';
